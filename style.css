@@ -116,6 +116,13 @@ h2{
 .optmenu>.fam{
 	border: var(--fam) 3px solid;
 }
+.fasc,
+.lgbt,
+.edu,
+.fam{
+	color:var(--base-text);
+}
+
 
 .fasc.hilight{
 	background:var(--fasc);
