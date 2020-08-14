@@ -36,6 +36,7 @@ main{
 
 body{
 	background: var(--page-background);
+	overflow:hidden;
 }
 
 p{
