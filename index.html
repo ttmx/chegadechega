@@ -10,17 +10,17 @@
 </head>
 
 <body>
-	<main>
-		<div id="scrollbar">
+	<div id="scrollbar">
 
-		</div>
+	</div>
+	<main>
 		<div id="jump-container">
 			<div id="options" class="card">
 				<div class="optmenu">
-					<div onClick="toggleCol('fasc')" class="option fasc hilight">Autoritarismo</div>
-					<div onClick="toggleCol('lgbt')" class="option lgbt hilight">LGBT+</div>
-					<div onClick="toggleCol('edu')" class="option edu hilight">Educaç&atilde;o</div>
-					<div onClick="toggleCol('fam')" class="option fam hilight">Fam&iacute;lia</div>
+					<div onClick="jumpTo('fasc')" class="option fasc hilight">Autoritarismo</div>
+					<div onClick="jumpTo('lgbt')" class="option lgbt hilight">LGBT+</div>
+					<div onClick="jumpTo('edu')" class="option edu hilight">Educaç&atilde;o</div>
+					<div onClick="jumpTo('fam')" class="option fam hilight">Fam&iacute;lia</div>
 
 				</div>
 			</div>
@@ -2083,9 +2083,10 @@
 			</div>
 		</div>
 	</main>
+	<div id="snackbar"></div>
+	<!-- <link rel="stylesheet" type="text/css" href="./OverlayScrollbars.css" /> -->
+	<!-- <script src="./OverlayScrollbars.min.js"></script> -->
 	<script src="./script.js"></script>
-	<link rel="stylesheet" type="text/css" href="./OverlayScrollbars.css" />
-	<script src="./OverlayScrollbars.min.js"></script>
 </body>
 
 </html>

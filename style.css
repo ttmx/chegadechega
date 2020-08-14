@@ -35,13 +35,13 @@ main{
 	width:100%;
 	align-content:center;
 }
-::-webkit-scrollbar{
-	width:0;
-}
+/* ::-webkit-scrollbar{ */
+/* 	width:0; */
+/* } */
 body{
 	background: var(--page-background);
-	overflow: -moz-scrollbars-none;
-	-ms-overflow-style: none;
+	/* overflow: -moz-scrollbars-none; */
+	/* -ms-overflow-style: none; */
 }
 
 p{
@@ -77,17 +77,17 @@ h2{
 }
 
 #jump-container{
-	align-text: center ;
-	width: 100vw;
+	width: 100%;
 	position: fixed;
 	bottom: 0;
+	left: 0;
 }
+
 #options{
 	background: var(--jumper-bg);
 	max-width: 40em;
-	padding: 0.125rem;
+	width: 100%;
 	border-radius: 10px 10px 0px 0px;
-	margin: auto;
 }
 
 #options>.optmenu{
@@ -187,69 +187,46 @@ h2{
 	/* border-radius: 5px; */
 }
 
-/* script style */
-.wrapper {
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  background: #FFF;
-  border: 1px #000 solid;
-  margin: 20px auto;
-  padding: 15px;
-  position: relative;
-  width: 600px;
-  height: 600px;
+/* snackbar */
+#snackbar {
+  visibility: hidden;
+  background-color: var(--jumper-bg);
+  color: var(--base-text);
+  text-align: center;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  position: fixed;
+  margin: auto;
+  z-index: 1;
+  bottom: 60px;
+  font-family: "mononoki";
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
-#container {
-  width: 580px;
-  height: 580px;
-  padding: 5px;
-  margin-top: 5px;
-  overflow: auto;
-  position: relative;
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
-.ssb_down {
-  background-color: #33ccaa;
-  bottom:0;
-  cursor:pointer;
-  position:absolute;
-  right:0;
-  border-radius: 10px;
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 60px; opacity: 1;}
 }
 
-.ssb_sb {
-  background-color: #22aabb;
-  cursor:pointer;
-  position:absolute;
-  right:0;
-  border-radius: 10px;
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 60px; opacity: 1;}
 }
 
-.ssb_sb_down {
-  background-color: #1199aa;
+@-webkit-keyframes fadeout {
+  from {bottom: 60px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
 }
 
-.ssb_sb_over {
-  background-color: #33bbcc;
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
 }
-
-.ssb_st {
-  background-color: #dedede;
-  cursor:pointer;
-  height:100%;
-  position:absolute;
-  right:0;
-  top:0;
-  border-radius: 10px;
-}
-
-.ssb_up {
-  background-color: #33ccaa;
-  cursor:pointer;
-  position:absolute;
-  right:0;
-  top:0;
-  border-radius: 10px;
-}
-/* end script styling */
+</style>
