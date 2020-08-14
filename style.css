@@ -13,6 +13,7 @@
 	--shadow-r: 184;
 	--shadow-g: 194;
 	--shadow-b: 215;
+	--jumper-bg: #D8DEE9;
 
 }
 
@@ -26,6 +27,7 @@
 		--shadow-r: 15;
 		--shadow-g: 17;
 		--shadow-b: 21;
+		--jumper-bg: #434C5E;
     }
 }
 
@@ -33,10 +35,13 @@ main{
 	width:100%;
 	align-content:center;
 }
-
+::-webkit-scrollbar{
+	width:0;
+}
 body{
 	background: var(--page-background);
-	overflow:hidden;
+	overflow: -moz-scrollbars-none;
+	-ms-overflow-style: none;
 }
 
 p{
@@ -60,35 +65,44 @@ h2{
 }
 
 .card{
-	background: var(--card-background);
 	box-shadow: var(--shadow);
 	border-radius:8px;
 	margin: auto;
-	margin-bottom: 2em;
 }
 
 .programa{
+	background: var(--card-background);
 	max-width: 95%;
 	padding: 2em 6%;
 }
 
+#jump-container{
+	align-text: center ;
+	width: 100vw;
+	position: fixed;
+	bottom: 0;
+}
 #options{
-	max-width: 80%;
-	padding: 1em 2em;
+	background: var(--jumper-bg);
+	max-width: 40em;
+	padding: 0.125rem;
+	border-radius: 10px 10px 0px 0px;
+	margin: auto;
 }
 
 #options>.optmenu{
 	display:flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: space-evenly;
+	justify-content: space-between;
 }
 
 .option{
 	border-radius:8px;
-	padding:calc(1em - 3px);
-	margin: 1rem;
+	padding:calc(0.5em - 3px);
+	margin: 0.5rem auto;
 	font-family: "mononoki";
+	font-weight: 1000;
 	box-shadow: var(--shadow);
 	cursor:pointer;
 	transition: all 0.25s;

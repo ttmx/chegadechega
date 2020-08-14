@@ -32,6 +32,11 @@ function makeBoxes(){
 			bar.style.height = elem.getBoundingClientRect().height * scale + "px";
 			bar.style.top = (elem.getBoundingClientRect().y + document.documentElement.scrollTop) * scale + "px";
 			bar.style.position = "relative";
+			bar.style.cursor = "pointer";
+			bar.onclick = (function(currElem) {
+				return function() { currElem.scrollIntoView(); };
+			 })(elem);
+			console.log(elem);
 			scroller.appendChild(bar);
 		}
 }
