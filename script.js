@@ -40,8 +40,8 @@ function makeBoxes(){
 		for (elem of type){
 			let bar = document.createElement("div");
 			bar.className = elem.className;
-			bar.style.height = elem.getBoundingClientRect().height * scale + "px";
-			bar.style.top = (elem.getBoundingClientRect().y + document.documentElement.scrollTop) * scale + "px";
+			bar.style.height = (elem.getBoundingClientRect().height * scale + 6 )+ "px";
+			bar.style.top = ((elem.getBoundingClientRect().y + document.documentElement.scrollTop) * scale - 3)+ "px";
 			bar.style.position = "relative";
 			bar.style.cursor = "pointer";
 			bar.onclick = (function(currElem) {
