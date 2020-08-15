@@ -35,15 +35,19 @@ function makeSpanList(){
 
 function makeBoxes(){
 	let scroller = document.getElementById("scrollbar");
+
+	// little side bars will be drawn at this scale from the original
 	let scale = window.innerHeight / document.documentElement.getBoundingClientRect().height;
+
 	for(type of Object.values(makeSpanList()))
 		for (elem of type){
 			let bar = document.createElement("div");
 			bar.className = elem.className;
-			bar.style.height = (elem.getBoundingClientRect().height * scale )+ "px";
-			bar.style.top = ((elem.getBoundingClientRect().y + document.documentElement.scrollTop) * scale )+ "px";
-			bar.style.position = "relative";
+			bar.style.height = (elem.getBoundingClientRect().height * scale +4)+ "px";
+			bar.style.top = ((elem.getBoundingClientRect().y + document.documentElement.scrollTop-2) * scale )+ "px";
+			bar.style.position = "fixed";
 			bar.style.cursor = "pointer";
+			bar.style.width = "2rem";
 			bar.onclick = (function(currElem) {
 				return function() { currElem.scrollIntoView(); };
 			 })(elem);
