@@ -50,6 +50,10 @@ p{
 	color: var(--base-text);
 }
 
+#content>.programa>p{
+	position:relative;
+}
+
 h1,h2{
 	font-family: "mononoki";
 }
@@ -81,6 +85,7 @@ h2{
 	position: fixed;
 	bottom: 0;
 	left: 0;
+	z-index: 20;
 }
 
 #options{
@@ -160,6 +165,19 @@ h2{
 	color:#fff;
 }
 
+.quote{
+	display: inline-block;
+}
+
+#programa>p>span.hilight {
+	cursor:pointer;
+	transition: 0.25s all;
+}
+#programa>p>span.hilight:hover {
+	z-index:5;
+	/* filter:brightness(80%); */
+}
+
 
 .header{
 	max-width:90%;
@@ -172,9 +190,6 @@ h2{
 	margin:auto;
 }
 
-.why{
-
-}
 .note{
 	color: #8fbcbb;
 }
@@ -187,7 +202,7 @@ h2{
 	width: 1rem;
 	right: 0rem;
 	top: 0;
-	z-index: 1;
+	z-index: 100;
 	/* border-radius: 5px; */
 }
 
@@ -201,7 +216,7 @@ h2{
 	padding: 0.5rem;
 	position: fixed;
 	margin: auto;
-	z-index: 1;
+	z-index: 100;
 	bottom: 60px;
 	font-family: "mononoki";
 	left: 50%;
@@ -234,4 +249,74 @@ h2{
   from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
 }
-</style>
+
+/* tooltips */
+
+/* [data-tooltip] { */
+/*   display: inline-block; */
+/*   position: relative; */
+/*   cursor: help; */
+/*   padding: 4px; */
+/* } */
+
+/* Tooltip styling */
+[data-tooltip]:before {
+  content: attr(data-tooltip);
+  display: none;
+  position: absolute;
+  background: var(--jumper-bg);
+  box-shadow: var(--shadow);
+  color: var(--base-text);
+  padding: 1rem 8px;
+  font-size: 14px;
+  line-height: 1.4;
+  min-width: 100px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+/* Dynamic horizontal centering */
+[data-tooltip]:before {
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+
+[data-tooltip]:before {
+  top: 100%;
+  margin-top: 6px;
+}
+
+
+/* Tooltip arrow styling/placement */
+[data-tooltip]:after {
+  content: '';
+  display: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+/* Dynamic horizontal centering for the tooltip */
+[data-tooltip]:after {
+  left: 50%;
+  margin-left: -6px;
+}
+
+[data-tooltip]:after {
+  top: 100%;
+  border-width: 0 6px 6px;
+  border-bottom-color: var(--jumper-bg);
+}
+
+/* Show the tooltip when hovering */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  display: block;
+  z-index: 1000;
+}
