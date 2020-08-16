@@ -349,8 +349,8 @@ h2{
 }
 
 /* Show the tooltip when hovering */
-.active-tooltip[data-tooltip]:before,
-.active-tooltip[data-tooltip]:after {
+.active[data-tooltip]:before,
+.active[data-tooltip]:after {
   display: block;
   z-index:5;
 }

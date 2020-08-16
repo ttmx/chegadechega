@@ -1,4 +1,3 @@
-let types = ["fasc","lgbt","edu","fam"];
 let labels = {
 	'fasc':'Autoritarismo',
 	'lgbt':'LGBT+',
@@ -6,49 +5,42 @@ let labels = {
 	'fam':'Família'
 }
 
-function pruneByClass(elems,className){
-	let toReturn = []
-		for(a of elems)
-			if (a.localName == className)
-				toReturn.push(a);
-	return toReturn;
-}
 function makeSpanList(){
-	let hilights = {};
 	let final_hilight = {};
-	for (i of types){
-		hilights[i] = document.getElementsByClassName(i);
-		final_hilight[i] = [];
-		final_hilight[i] = pruneByClass(hilights[i],"span");
+	for (i of Object.keys(labels)){
+		final_hilight[i] = document.getElementById("programa").getElementsByClassName(i);
 	}
-	return final_hilight;
+	return document.getElementById("programa").querySelectorAll(".hilight");
 }
 
 
-function makeBoxes(){
-	let scroller = document.getElementById("scrollbar");
+function makeBoxes() {
+	const scroller = document.getElementById("scrollbar");
 
 	// little side bars will be drawn at this scale from the original
-	let scale = window.innerHeight / document.documentElement.getBoundingClientRect().height;
+	const scale = window.innerHeight / document.documentElement.getBoundingClientRect().height;
 
-	for(type of Object.values(makeSpanList()))
-		for (elem of type){
-			let bar = document.createElement("div");
-			bar.className = elem.className;
-			bar.style.height = (elem.getBoundingClientRect().height * scale +4)+ "px";
-			bar.style.top = ((elem.getBoundingClientRect().y + document.documentElement.scrollTop-2) * scale )+ "px";
-			bar.style.position = "fixed";
-			bar.style.cursor = "pointer";
-			bar.style.width = "2rem";
-			bar.onclick = (function(currElem) {
-				return function() { currElem.scrollIntoView(); };
-			 })(elem);
-			scroller.appendChild(bar);
-		}
+	for (elem of makeSpanList()) {
+		let bar = document.createElement("div");
+		bar.className = elem.className;
+		bar.style.height = (elem.getBoundingClientRect().height * scale + 4) + "px";
+		bar.style.top = ((elem.getBoundingClientRect().y + document.documentElement.scrollTop - 2) * scale) + "px";
+		bar.style.position = "fixed";
+		bar.style.cursor = "pointer";
+		bar.style.width = "2rem";
+
+		//Function fuckery idk
+		bar.onclick = (function (currElem) {
+			return function () {currElem.scrollIntoView();};
+		})(elem);
+
+		scroller.appendChild(bar);
+	}
 }
 
 function jumpTo(type) {
-	let spans = pruneByClass(document.getElementsByClassName(type),"span");
+	let spans = document.getElementById("programa")
+		.querySelectorAll("span."+type);
 	let found = false;
 	for (span of spans){
 		if(span.getBoundingClientRect().y>20){
@@ -78,7 +70,6 @@ function addQuoteListeners(){
 	for(span of spans){
 		if (span.dataset.tooltip)
 			span.addEventListener("click",function(a,b,c){
-				this.classList.toggle("active-tooltip");
 				this.classList.toggle("active");
 			})
 	}
@@ -88,7 +79,7 @@ function addQuoteListeners(){
 document.addEventListener("DOMContentLoaded", function() {
     //The first argument are the elements to which the plugin shall be initialized
     //The second argument has to be at least a empty object or a object with your desired options
-	// makeBoxes();
+	makeBoxes();
     OverlayScrollbars(document.querySelectorAll('body'), { });
-	// addQuoteListeners();
+	addQuoteListeners();
 });
