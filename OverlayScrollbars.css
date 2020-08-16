@@ -583,7 +583,7 @@ html.os-html>.os-host>.os-scrollbar {
 }
 
 .os-theme-dark>.os-scrollbar-vertical>.os-scrollbar-track>.os-scrollbar-handle,.os-theme-light>.os-scrollbar-vertical>.os-scrollbar-track>.os-scrollbar-handle {
-    /* min-height: 30px */
+    min-height: 2rem;
 }
 
 .os-theme-dark.os-host-transition>.os-scrollbar>.os-scrollbar-track>.os-scrollbar-handle,.os-theme-light.os-host-transition>.os-scrollbar>.os-scrollbar-track>.os-scrollbar-handle {
