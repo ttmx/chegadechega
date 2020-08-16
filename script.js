@@ -1,11 +1,3 @@
-function toggleCol(theme){
-	[...document.getElementsByClassName(theme)]
-		.forEach((elem)=>{
-		elem.classList.toggle("hilight");
-
-	})
-}
-
 let types = ["fasc","lgbt","edu","fam"];
 let labels = {
 	'fasc':'Autoritarismo',
@@ -84,11 +76,11 @@ function toast(msg){
 function addQuoteListeners(){
 	let spans = document.getElementById("programa").getElementsByTagName("span");
 	for(span of spans){
-		span.addEventListener("click",function(a,b,c){
-			console.log(a);
-			console.log(this);
-			console.log("---");
-		})
+		if (span.dataset.tooltip)
+			span.addEventListener("click",function(a,b,c){
+				this.classList.toggle("active-tooltip");
+				this.classList.toggle("active");
+			})
 	}
 }
 
