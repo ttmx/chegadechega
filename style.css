@@ -171,24 +171,32 @@ h2{
 }
 
 
-.fasc.hilight:hover,
+.scrollbar .fasc.hilight:hover,
+.fasc.hilight[data-tooltip]:hover,
 .fasc.active{
 	background:var(--fasc2);
+	cursor:pointer;
 }
 
-.lgbt.hilight:hover,
+.scrollbar .lgbt.hilight:hover,
+.lgbt.hilight[data-tooltip]:hover,
 .lgbt.active{
 	background:var(--lgbt2);
+	cursor:pointer;
 }
 
-.edu.hilight:hover,
+.scrollbar .edu.hilight:hover,
+.edu.hilight[data-tooltip]:hover,
 .edu.active{
 	background:var(--edu2);
+	cursor:pointer;
 }
 
-.fam.hilight:hover,
+.scrollbar .fam.hilight:hover,
+.fam.hilight[data-tooltip]:hover,
 .fam.active{
 	background:var(--fam2);
+	cursor:pointer;
 }
 
 
@@ -197,7 +205,6 @@ h2{
 }
 
 #programa>p>span.hilight {
-	cursor:pointer;
 	transition: 0.25s all;
 }
 #programa>p>span.hilight:hover {
