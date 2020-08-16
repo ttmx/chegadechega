@@ -215,7 +215,7 @@ h2{
 
 .header{
 	max-width:90%;
-	margin: 0px auto 4em;
+	margin: 0px auto 2em;
 	text-align: center;
 }
 
@@ -354,4 +354,9 @@ h2{
 .active[data-tooltip]:after {
   display: block;
   z-index:5;
+}
+
+
+#socials>a>img{
+	padding: 0 1rem;
 }
