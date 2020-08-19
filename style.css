@@ -73,6 +73,11 @@ h2{
 	color: var(--base-text);
 }
 
+a{
+	color:#81a1c1;
+	font-weight:bold;
+}
+
 .card{
 	box-shadow: var(--shadow);
 	border-radius:8px;
