@@ -2,7 +2,7 @@ let labels = {
 	'fasc':'Autoritarismo',
 	'lgbt':'LGBT+',
 	'edu':'Educação',
-	'fam':'Família'
+	'fam':'Outros'
 }
 
 function makeSpanList(){

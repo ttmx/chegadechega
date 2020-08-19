@@ -79,7 +79,9 @@ h2{
 	margin: auto;
 }
 
+.intro,
 .programa{
+	margin: 2em 0em;
 	background: var(--card-background);
 	max-width: 95%;
 	padding: 2em 6%;
